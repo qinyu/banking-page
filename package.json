@@ -6,6 +6,7 @@
   "license": "MIT",
   "author": "Heaton, Qinyu",
   "scripts": {
+    "build": "build",
     "test": "gulp spec"
   },
   "dependencies": {
