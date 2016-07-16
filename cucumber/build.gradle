@@ -1,0 +1,26 @@
+apply plugin: 'java'
+
+project.ext {
+    cucumberVersion = '1.2.4'
+    junitVersion = '4.12'
+    selenideVersion = '3.7'
+    appiumVersion = '4.0.0'
+}
+
+dependencies {
+    testCompile 'info.cukes:cucumber-java:' + cucumberVersion
+    testCompile 'info.cukes:cucumber-junit:' + cucumberVersion
+    testCompile 'junit:junit:' + junitVersion
+    testCompile 'com.codeborne:selenide:' + selenideVersion
+    testCompile 'io.appium:java-client:' + appiumVersion
+}
+
+repositories {
+    mavenCentral()
+}
+
+test {
+    testLogging.showStandardStreams = true
+    systemProperties System.getProperties()
+    systemProperty('selenide.browser', 'LocalAndroidDriverProvider')
+}
