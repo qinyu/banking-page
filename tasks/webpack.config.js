@@ -3,6 +3,7 @@ module.exports = {
   output: {
     filename: 'app.bundle.js'
   },
+  devtool: 'cheap-module-source-map',
   module: {
     loaders: [{
       test: /\.js$/,
