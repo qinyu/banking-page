@@ -1,10 +1,26 @@
-// Ionic Starter App
+import MenuController from './menu-controller';
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+export default angular.module('starter', ['ionic'])
+
+  .controller('MenuCtrl', MenuController)
+
+  .controller('PlaylistsCtrl', function($scope) {
+    $scope.playlists = [
+      { title: 'Reggae', id: 1 },
+      { title: 'Chill', id: 2 },
+      { title: 'Dubstep', id: 3 },
+      { title: 'Indie', id: 4 },
+      { title: 'Rap', id: 5 },
+      { title: 'Cowbell', id: 6 }
+    ];
+  })
+
+  .controller('PlaylistCtrl', function($scope, $stateParams) {
+  })
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -29,7 +45,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
+    controller: 'MenuCtrl'
   })
 
   .state('app.search', {
